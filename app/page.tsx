@@ -1,4 +1,4 @@
-import WorldView from "@/components/WorldView";
+import WorldView from "../components/WorldView";
 
 export default function Home() {
   return <WorldView />;
