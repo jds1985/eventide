@@ -1,0 +1,13 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  color: #eaeaea;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  height: 100%;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
