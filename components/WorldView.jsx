@@ -1,19 +1,11 @@
 export default function WorldView() {
   return (
     <div style={styles.container}>
-      {/* Background video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        style={styles.video}
-      >
-        <source src="/visuals/neon-rain-city.mp4" type="video/mp4" />
-      </video>
+      {/* Static background */}
+      <div style={styles.background} />
 
-      {/* Dark overlay */}
-      <div style={styles.overlay} />
+      {/* Rain layer */}
+      <div style={styles.rain} />
 
       {/* UI */}
       <div style={styles.ui}>
@@ -32,38 +24,41 @@ const styles = {
     overflow: "hidden",
     backgroundColor: "black",
   },
-  video: {
+
+  background: {
     position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
+    inset: 0,
+    backgroundImage: "url('/visuals/neon-rain-city.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    filter: "brightness(0.7)",
     zIndex: 0,
   },
-  overlay: {
+
+  rain: {
     position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    background: "rgba(0,0,0,0.45)",
+    inset: 0,
+    backgroundImage:
+      "linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px)",
+    backgroundSize: "2px 10px",
+    animation: "rainMove 1.5s linear infinite",
+    opacity: 0.25,
     zIndex: 1,
   },
+
   ui: {
     position: "relative",
     zIndex: 2,
     height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
     padding: "32px",
     color: "white",
   },
+
   title: {
     fontSize: "2.5rem",
     margin: 0,
   },
+
   subtitle: {
     marginTop: "8px",
     opacity: 0.8,
